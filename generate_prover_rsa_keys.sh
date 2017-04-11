@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # minimum key length (openssl doesnt work with less than 31)
 MIN_K=32
 
@@ -29,7 +31,7 @@ function isolate {
     # looks like: 06:e3:c5:69:55:c2:77:f7:9a:84:e4:9e:01
     # so we want to convert hex to decimal
     HEX=`echo $1 | tr -d ": " | tr [a-z] [A-Z] `
-    echo "ibase=16; $HEX" | bc > $2
+    echo "ibase=16; $HEX" | bc | tr -d "\\\r\n" > $2
   fi
   echo "Created $2"
 }
