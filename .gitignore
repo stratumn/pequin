@@ -1,3 +1,8 @@
 rsa-n
 rsa-e
 rsa-d
+actual_balance
+balance_to_prove
+encrypted_balance
+inputs.txt
+modexp
