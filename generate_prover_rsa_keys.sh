@@ -1,4 +1,4 @@
-
+# minimum key length (openssl doesnt work with less than 31)
 MIN_K=32
 
 # set key length to minimum if not given
@@ -14,15 +14,8 @@ else
   fi
 fi
 
-# private key file name
-PK=pob.pem
-
-# generate rsa prviate key
-openssl genrsa -out $PK $K
-
-# human readable text version of private key
-RSA=$(openssl rsa -in pob.pem -text -noout)
-#echo $RSA
+# generate rsa keypair
+RSA=$(openssl genrsa  $K | openssl rsa -text -noout)
 
 # function to isolate given compenent, whether its initially in decimal or hex, and write to file
 function isolate {
@@ -38,6 +31,7 @@ function isolate {
     HEX=`echo $1 | tr -d ": " | tr [a-z] [A-Z] `
     echo "ibase=16; $HEX" | bc > $2
   fi
+  echo "Created $2"
 }
 
 # write each component to its own file
