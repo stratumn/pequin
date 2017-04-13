@@ -10,18 +10,20 @@ struct Out {
   int valid;
 };
 
+#define MAX_EXPONENT_BITS 35
+
 // a ^ b % c
 int powm(int a, int b, int c) {
   long long res = 1;
   a %= c;
   int i;
-  for (i=0; i<100; i++) {
-  	if (b > 0) {
-	    if (b % 2 == 1) {
-	      res = (res * a) % c;
-	    }
-	    b = b >> 1;
-	    a = (a * a) % c;
+  for (i=0; i<MAX_EXPONENT_BITS; i++) {
+    if (b > 0) {
+      if (b % 2 == 1) {
+        res = (res * a) % c;
+      }
+      b = b >> 1;
+      a = (a * a) % c;
     }
   }
   return res;
