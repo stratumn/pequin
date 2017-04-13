@@ -20,7 +20,4 @@ fi
 ./modexp actual_balance rsa-e rsa-n > encrypted_balance
 
 # now we create inputs.txt with the encrypted actual balance, and the balance to prove
-cat encrypted_balance balance_to_prove > inputs.txt
-
-echo "created inputs.txt"
-cat inputs.txt
+cat encrypted_balance balance_to_prove
