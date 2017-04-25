@@ -7,7 +7,6 @@ struct In {
 };
 
 struct Out {
-  uint64_t decrypted_balance;
   int valid;
 };
 
@@ -55,13 +54,12 @@ int compute(struct In *input, struct Out *output) {
 
   // decrypt balance
   uint64_t decrypted_balance = powm(input->encrypted_balance, private_key[0], private_key[1]);
-  output->decrypted_balance = decrypted_balance;
 
-  // check validity
+  // check validity (not garbage)
   output->valid = valid_decryption(decrypted_balance);
 
   // test decrypted balance
-  return (output->decrypted_balance >= input->balance_to_prove);
+  return (decrypted_balance >= input->balance_to_prove);
 }
 
 
