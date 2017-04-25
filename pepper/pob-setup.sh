@@ -12,8 +12,7 @@ mkdir -p prover_verifier_shared
 mkdir -p bin
 
 echo "$(date) clear previous executables" | tee -a $LOG
-rm -f ./bin/$SCRIPT.*
-rm -f ./bin/*_$SCRIPT
+rm -f ./bin/*
 
 echo "$(date) verifier setup" | tee -a $LOG
 SECONDS=0
