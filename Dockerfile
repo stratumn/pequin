@@ -14,4 +14,7 @@ WORKDIR /zkp/thirdparty
 RUN /zkp/thirdparty/install_pepper_deps.sh
 
 WORKDIR /zkp/pepper
-CMD ["/zkp/pepper/setup.sh", "proof_of_balance"]
+RUN /zkp/pepper/pob-setup.sh
+
+RUN echo "to generate proof, run './pob-prove.sh ACTUAL_BALANCE BALANCE_TO_PROVE'"
+RUN echo "to verify proof, run './pob-verify.sh'"
