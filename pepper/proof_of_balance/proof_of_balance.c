@@ -54,5 +54,3 @@ int compute(struct In *input, struct Out *output) {
   // test decrypted balance
   return (decrypted_balance >= input->balance_to_prove);
 }
-
-
