@@ -11,7 +11,7 @@ struct Out {
 };
 
 // a ^ b % c
-int powm(uint64_t a, uint64_t b, uint64_t c) {
+uint64_t powm(uint64_t a, uint64_t b, uint64_t c) {
   uint64_t res = 1;
   a %= c;
   int i;
@@ -31,14 +31,7 @@ int powm(uint64_t a, uint64_t b, uint64_t c) {
 // we make sure the first 16 bits are 0
 // this means that 2^48 is our max valid balance
 int valid_decryption(uint64_t x) {
-  int i;
-  int valid=1;
-  for (i=63; i>47; i--) {
-    if ((x >> i) & 1) {
-      valid=0;
-    }
-  }
-  return valid;
+  return ((x >> 47) == 0);
 }
 
 
