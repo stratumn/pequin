@@ -158,6 +158,8 @@ void sha256_final(SHA256_CTX *ctx, uchar* hash)
    }  
 }  
 
+#define HASH_NUM_BYTES 32
+
 // test if two byte arrays are equal
 int are_equal(uchar* s1, uchar* s2)
 {
@@ -173,13 +175,13 @@ int are_equal(uchar* s1, uchar* s2)
 
 // take a generated hash
 struct In {
-  uchar hash[32];
+  uchar hash[HASH_NUM_BYTES];
 };
 
 
 // outputs the hash we generated
 struct Out {
-  uchar hash[32];
+  uchar hash[HASH_NUM_BYTES];
 };
 
 // computes the hash of private value and compares to public hash input
