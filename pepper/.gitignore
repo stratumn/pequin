@@ -6,3 +6,4 @@ pepper_verifier
 proving_material/
 verification_material/
 prover_verifier_shared/
+sftp-config.json
