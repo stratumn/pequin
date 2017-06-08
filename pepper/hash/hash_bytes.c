@@ -1,6 +1,9 @@
 #include <stdio.h> 
 #include <string.h>
 
+// SHA-256 implementation from brad conte
+// https://github.com/B-Con/crypto-algorithms
+
 #define uchar unsigned char // 8-bit byte
 #define uint unsigned int // 32-bit word
 

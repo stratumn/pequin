@@ -1,5 +1,8 @@
 #include <stdint.h> 
 
+// SHA-256 implementation from brad conte
+// https://github.com/B-Con/crypto-algorithms
+
 #define uchar unsigned char // 8-bit byte
 #define uint unsigned int // 32-bit word
 
@@ -94,6 +97,8 @@ void sha256_update(SHA256_CTX *ctx, uchar* data, uint len)
 {  
    uint t,i;
    
+   // modified from original to avoid 'data-dependent' loops
+   // ie this will only use the first 64 bytes of data on each call
    for (i=0; i < 64; ++i) { 
       if (i < len) {
          ctx->data[ctx->datalen] = data[i]; 
@@ -153,8 +158,7 @@ void sha256_final(SHA256_CTX *ctx, uchar* hash)
    }  
 }  
 
-#define HASH_NUM_BYTES 32
-
+// test if two byte arrays are equal
 int are_equal(uchar* s1, uchar* s2)
 {
   int i;
@@ -167,14 +171,18 @@ int are_equal(uchar* s1, uchar* s2)
   return valid; 
 }
 
+// take a generated hash
 struct In {
   uchar hash[32];
 };
 
+
+// outputs the hash we generated
 struct Out {
   uchar hash[32];
 };
 
+// computes the hash of private value and compares to public hash input
 int compute(struct In *input, struct Out *output) {
 
   // get witness values (preimage, private to prover)

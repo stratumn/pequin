@@ -1,0 +1,25 @@
+README
+
+example developed for "proving we know the preimage of a hash" in zk.
+hopefully useful for proxy voting project
+
+to play, try the following from the pequin/pepper directory:
+
+# builds relevant executables
+# only have to do this once
+
+./setup-hash.sh
+
+# hashes offline (only uses first 64 characters of your argument, pads with underscores if argument is fewer than 64 chars)
+# copies public and private inputs to relevant dirs
+# run this for every new example
+
+./prepare-hash.sh stringyouwanttohash
+
+# prove
+
+./prove hash
+
+# verify
+
+./verify hash
