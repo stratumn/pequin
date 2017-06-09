@@ -4,7 +4,7 @@
 SCRIPT=proof_of_balance
 LOG="$SCRIPT.log"
 
-# set strength of RSA key (current script uses uint32_t and cannot handle larger keys)
+# set strength of RSA key (current script uses uint64_t and cannot handle larger keys)
 K=64
 
 echo "$(date) generate keys for user using K=$K" | tee -a $LOG
