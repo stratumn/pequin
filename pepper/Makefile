@@ -17,7 +17,8 @@ IFLAGS += -I../thirdparty/libsnark -I../thirdparty/libsnark/depends/libff -I../t
 
 LDFLAGS = -L$(DEPSDIR)/lib
 LDFLAGS += -L../thirdparty/libsnark/build/libsnark -L../thirdparty/libsnark/build/depends/libff/libff -L../thirdparty/libsnark/build/depends
-LDFLAGS += -lsnark -lff -lzm -lgmp -lgmpxx -lpapi -lrt -lleveldb -lkyotocabinet -Wl,-rpath,$(DEPSDIR)/lib/
+LDFLAGS += -lsnark -lff -lzm -lgmpxx -lgmp -lpapi -lrt -lleveldb -lkyotocabinet -Wl,-rpath,$(DEPSDIR)/lib/
+LDFLAGS += -lz
 
 GENSRCDIR = gen
 BINDIR = bin
@@ -55,6 +56,7 @@ endif
 CXXFLAGS += -DDB_NUM_ADDRESSES=$(DB_NUM_ADDRESSES) -DDB_HASH_NUM_BITS=$(DB_HASH_NUM_BITS)
 CXXFLAGS += -DRAM_CELL_NUM_BITS=$(RAM_CELL_NUM_BITS)
 
+CXXFLAGS += -static -pthread
 CXXFLAGS += -DFAST_RAM_WORD_WIDTH=$(FAST_RAM_WORD_WIDTH)
 CXXFLAGS += -DFAST_RAM_ADDRESS_WIDTH=$(FAST_RAM_ADDRESS_WIDTH)
 CXXFLAGS += -DFOLDER_TMP=\"/tmp/$(USER)/tmp_state\"
