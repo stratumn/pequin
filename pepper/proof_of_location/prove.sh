@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # This script runs the prover part of the proof of location.
 # It needs to be run from its parent directory: ./proof_of_location/prove.sh

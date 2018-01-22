@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # This script compiles both the verifier and the prover for the proof of location.
 # It needs to be run from its parent directory: ./proof_of_location/setup.sh
