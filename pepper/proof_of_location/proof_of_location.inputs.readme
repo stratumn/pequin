@@ -1,7 +1,7 @@
 The format of the inputs file can be a bit counter-intuitive.
 If depends on the number of allowed areas and the In struct in proof_of_location.c.
 
-You need to create a proof_of_location.inputs file in the prover_verifier_shared folder.
+You need to put a proof_of_location.inputs file in the prover_verifier_shared folder.
 
 Example:
   - AREAS_COUNT is set to 3 
