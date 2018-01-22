@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # This script runs the verifier part of the proof of location.
+# It needs to be run from its parent directory: ./proof_of_location/verify.sh
 # It verifies first that the proof is valid, which means the outputs file can be trusted.
 # Then it looks at the contents of the output file to see if the location is allowed or not.
 
