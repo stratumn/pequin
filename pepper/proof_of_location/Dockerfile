@@ -1,8 +1,6 @@
 # This image will be built when you run ./proof_of_location/setup.sh
 # It needs to be run from the 'pepper' directory to get the proper build context.
-FROM ubuntu
-
-RUN apt-get update -y
+FROM alpine
 
 RUN mkdir /proof_of_location
 COPY bin /proof_of_location/bin
