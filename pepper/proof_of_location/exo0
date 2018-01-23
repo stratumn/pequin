@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# You need to place this script in the bin directory.
+# It will be called by the prover to simulate getting GPS coordinates
+# from a secure module.
+
+# This is the X coordinate
+echo 9
+# This is the Y coordinate
+echo 5

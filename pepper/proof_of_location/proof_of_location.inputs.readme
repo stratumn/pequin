@@ -1,0 +1,35 @@
+The format of the inputs file can be a bit counter-intuitive.
+If depends on the number of allowed areas and the In struct in proof_of_location.c.
+
+You need to put a proof_of_location.inputs file in the prover_verifier_shared folder.
+
+Example:
+  - AREAS_COUNT is set to 3 
+  - Our three allowed areas are: (R=2,X=3,Y=4), (R=2,X=5,Y=6), (R=3,X=7,Y=8)
+  - The inputs list needs to contain first the list of radius, then the list of X, then the list of Y
+  - So it will contain:
+  - 2
+  - 2
+  - 3
+  - 3
+  - 5
+  - 7
+  - 4
+  - 6
+  - 8
+
+Visually, it will correspond to the three overlapping areas containing an X in a 2D plane:
+
+| | | | | | | | | | | | | |
+| | | | |x|x|x|x|x|x| | | |
+| | | | |x|x|x|x|x|x| | | |
+| | | | |x|x|x|x|x|x| | | |
+| | | |x|x|x|x|x|x|x| | | |
+| | | |x|x|x|x|x|x|x| | | |
+| |x|x|x|x|x|x|x|x|x| | | |
+| |x|x|x|x|x|x| | | | | | |
+| |x|x|x|x| | | | | | | | |
+| |x|x|x|x| | | | | | | | |
+| | | | | | | | | | | | | |
+| | | | | | | | | | | | | |
+0 1 2 3 4 5 6 7 8 9 ...
