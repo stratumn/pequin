@@ -20,9 +20,12 @@ then
     if [ "$RESULT" = "1" ];
     then
         echo Valid location
+        exit 0
     else
         echo Invalid location
+        exit 1
     fi
 else
     echo Invalid proof
+    exit 1
 fi
